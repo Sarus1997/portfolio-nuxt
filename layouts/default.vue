@@ -1,5 +1,5 @@
 <template>
-    <NuxtLoadingIndicator />
+    <StarryBackground />
     <AppNavbar />
     <slot />
     <AppFooter />

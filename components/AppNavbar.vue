@@ -164,8 +164,11 @@ ul {
 }
 
 .appbar-sticky {
-    background-color: #152a60;
+    background-color: rgba(6, 19, 53, 0.7);
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
 }
+
 
 .appbar-col {
     flex: 1;
@@ -239,7 +242,9 @@ ul {
     right: -250px;
     width: 250px;
     height: 100%;
-    background-color: #24262b;
+    background-color: rgba(6, 19, 53, 0.7);
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
     transition: right 0.3s ease;
     z-index: 1001;
     padding: 20px;
@@ -269,7 +274,7 @@ ul {
 }
 
 .sidebar nav ul li a:hover {
-    color: #00ffdd;
+    color: #a51fd2;
 }
 
 /* Close button styles */
