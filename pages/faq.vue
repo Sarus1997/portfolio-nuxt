@@ -13,6 +13,7 @@
             </div>
         </div>
     </div>
+    <br>
 </template>
 
 <script lang="ts" setup>
@@ -21,16 +22,41 @@ import { ref, watch } from 'vue';
 const faqs = ref([
     {
         question: 'เรียนจบจากมหาวิทยาลัยอะไร',
-        answer: '<p>มหาวิทยาลัยวลัยลักษณ์</p><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI_MObYs_zIkmCVEdiFnqm_224eT42pZGEBw&s" style="width: 100px; height: auto;">',
+        answer: '<p>มหาวิทยาลัยวลัยลักษณ์</p><img src="img/logo/Walailak_University_Logo.png" style="width: 100px; height: auto;">',
         checked: false
     },
     {
-        question: 'How much wood would a woodchuck chuck?',
-        answer: 'A woodchuck would chuck all the wood he could chuck, if a woodchuck could chuck wood!',
+        question: 'ทำไมถึงเรียนสาย IT',
+        answer: 'ได้รู้จักและทดลองใช้เทคโนโลยีใหม่ๆ รวมไปถึงได้ฝึกเขียน Programming Language และ Framework ใหม่ๆ ',
         checked: false
     },
     {
-        question: 'ชอบสัตว์เลี้ยงประเภทใด',
+        question: 'Programming Language ที่ชอบ',
+        answer: 'HTML5, CSS3, JavaScript, Python, Golang, C++, Java',
+        checked: false
+    },
+    {
+        question: 'JavaScript libraries และ avaScript Frameworks ที่ชอบ',
+        answer: 'React.js, Vue.js, Node.js, Next.js, Nuxt.js',
+        checked: false
+    },
+    {
+        question: 'Tool Editor ที่ใช้ในการพัฒนาเว็บไซต์',
+        answer: 'Visual Studio Code (VS Code)',
+        checked: false
+    },
+    {
+        question: 'Notebook brand ที่ชอบ',
+        answer: 'MSI',
+        checked: false
+    },
+    {
+        question: 'อาชีพที่อยากทำ',
+        answer: 'Programmer และ Data Analyst',
+        checked: false
+    },
+    {
+        question: 'สัตว์เลี้ยงที่ชอบ',
         answer: 'แมว',
         checked: false
     }
@@ -60,11 +86,16 @@ body {
 
 .faq-header {
     font-size: 42px;
+    color: #fcfcfc;
     border-bottom: 1px dotted #ccc;
     padding: 24px;
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    height: 20vh;
 }
+
 
 .faq-question {
     padding: 20px 0;
@@ -73,6 +104,7 @@ body {
 }
 
 .panel-title {
+    color: #fcfcfc;
     font-size: 24px;
     display: flex;
     align-items: center;
