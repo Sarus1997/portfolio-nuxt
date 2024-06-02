@@ -17,7 +17,7 @@ onMounted(() => {
     for (let i = 1; i <= 30; i++) {
         let starTailLength: string = getRandomValue(5, 7) + 'em';
         let topOffset: string = getRandomValue(10, 30) + 'vh';
-        let fallDuration: string = getRandomValue(6, 12) + 's';
+        let fallDuration: string = getRandomValue(3, 15) + 's';
         let fallDelay: string = getRandomValue(1, 10) + 's';
 
         cssCode += `
@@ -42,17 +42,17 @@ onMounted(() => {
     position: fixed;
     top: 0;
     left: 0;
-    width: 110%; /* เพิ่มความกว้าง */
-    height: 120%; /* เพิ่มความสูง */
+    width: 120%;
+    height: 100%;
+    overflow: hidden;
     transform: rotate(-45deg);
 }
-
 
 .star {
     --star-tail-length: 6em;
     --star-tail-height: 2px;
     --star-width: calc(var(--star-tail-length) / 6);
-    --fall-duration: 9s;
+    --fall-duration: 1s;
     --tail-fade-duration: var(--fall-duration);
 
     position: absolute;
@@ -89,7 +89,7 @@ onMounted(() => {
 }
 
 .star:nth-child(5) {
-    --star-color: #8484ff;
+    --star-color: #84ffd4;
     color: var(--star-color);
 }
 
@@ -115,7 +115,7 @@ onMounted(() => {
 }
 
 .star:nth-child(5n+5) {
-    --star-color: #8484ff;
+    --star-color: #84ffd4;
     color: var(--star-color);
 }
 

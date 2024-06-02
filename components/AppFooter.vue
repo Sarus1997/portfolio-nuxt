@@ -9,7 +9,7 @@
                 <div class="footer-col">
                     <h4>get help</h4>
                     <ul>
-                        <li><a href="/faq">FAQ</a></li>
+                        <li><a href="/questions-and-answers">Q&A</a></li>
                         <li><a href="/policy">Policy</a></li>
                     </ul>
                 </div>

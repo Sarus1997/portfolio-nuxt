@@ -4,52 +4,14 @@
             <div id="large-header" class="large-header" ref="headerRef">
                 <canvas id="demo-canvas"></canvas>
                 <h1 class="main-title">Portfolio</h1>
-                <p><strong>By</strong>Sarus</p>
+                <p><strong>By </strong>Sarus</p>
             </div>
         </div>
     </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref } from 'vue';
 
-export default defineComponent({
-    name: 'HeaderAnimation',
-    setup() {
-        const headerRef = ref<HTMLDivElement | null>(null);
-
-        onMounted(() => {
-            if (headerRef.value) {
-                const header = headerRef.value;
-                const canvas = header.querySelector('#demo-canvas') as HTMLCanvasElement;
-                const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
-                let mouseX = 0;
-                let mouseY = 0;
-
-                // Update mouse coordinates
-                header.addEventListener('mousemove', (event) => {
-                    mouseX = event.clientX - header.offsetLeft;
-                    mouseY = event.clientY - header.offsetTop;
-                });
-
-                // Animation loop
-                const animate = () => {
-                    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-                    // Draw animated elements here, based on mouseX and mouseY
-
-                    requestAnimationFrame(animate);
-                };
-
-                animate();
-            }
-        });
-
-        return {
-            headerRef
-        };
-    }
-});
 </script>
 
 <style scoped>
@@ -57,17 +19,9 @@ export default defineComponent({
     position: relative;
     width: 100%;
     height: 100vh;
-    background: #111;
-    overflow: hidden;
-    background-size: cover;
-    background-position: center center;
-    z-index: 1;
 }
 
-.demo .large-header {
-    background-image: url("https://images.wallpaperscraft.com/image/single/code_programming_it_152538_1280x720.jpg");
-    width: 100%;
-}
+
 
 .main-title {
     position: absolute;
