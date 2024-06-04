@@ -1,58 +1,64 @@
 <template>
     <div class="stars">
-        <div class="star" v-for="n in 30" :key="n"></div>
+        <div class="star" v-for="n in 50" :key="n"></div>
     </div>
 </template>
 
-<script setup lang="ts">
-import { onMounted } from 'vue';
+<script lang="ts">
+import { defineComponent } from 'vue';
 
-function getRandomValue(min: number, max: number): string {
-    return (Math.random() * (max - min) + min).toFixed(1);
-}
-
-onMounted(() => {
-    let cssCode: string = '';
-
-    for (let i = 1; i <= 30; i++) {
-        let starTailLength: string = getRandomValue(5, 7) + 'em';
-        let topOffset: string = getRandomValue(10, 30) + 'vh';
-        let fallDuration: string = getRandomValue(3, 15) + 's';
-        let fallDelay: string = getRandomValue(1, 10) + 's';
-
-        cssCode += `
-.star:nth-child(${i}) {
-    --star-tail-length: ${starTailLength};
-    --top-offset: ${topOffset};
-    --fall-duration: ${fallDuration};
-    --fall-delay: ${fallDelay};
-}\n`;
-    }
-
-    const style = document.createElement('style');
-    style.type = 'text/css';
-    style.innerHTML = cssCode;
-    document.head.appendChild(style);
+export default defineComponent({
+    name: 'Stars'
 });
 </script>
 
+<style lang="scss" scoped>
+@function random_range($min, $max) {
+    @return $min +random($max - $min + 1);
+}
 
-<style scoped>
 .stars {
     position: fixed;
     top: 0;
     left: 0;
-    width: 120%;
-    height: 100%;
-    overflow: hidden;
-    transform: rotate(-45deg);
+    width: 100%;
+    height: 120%;
+    transform: rotate(-50deg);
 }
 
 .star {
+    width: 10px;
+    height: 10px;
+    background-color: var(--star-color);
+    position: absolute;
+    top: var(--top-offset);
+    left: 50%;
+    transform: translateX(-50%);
+    animation: fall var(--fall-duration) var(--fall-delay) linear forwards;
+}
+
+@keyframes fall {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(calc(100vh + var(--star-tail-length)));
+    }
+}
+
+.star {
+    $star-count: 50;
+    --star-color-1: #fff;
+    --star-color-2: #ff9a9e;
+    --star-color-3: #d7fac4;
+    --star-color-4: #fbc2eb;
+    --star-color-5: #a18cd1;
     --star-tail-length: 6em;
-    --star-tail-height: 2px;
+    --star-tail-height: 1px;
     --star-width: calc(var(--star-tail-length) / 6);
-    --fall-duration: 1s;
+    --fall-duration: 9s;
     --tail-fade-duration: var(--fall-duration);
 
     position: absolute;
@@ -60,102 +66,41 @@ onMounted(() => {
     left: 0;
     width: var(--star-tail-length);
     height: var(--star-tail-height);
-    background: linear-gradient(10deg, currentColor, transparent);
+    background: linear-gradient(45deg, var(--star-color), transparent);
     border-radius: 50%;
-    filter: drop-shadow(0 0 6px currentColor);
+    filter: drop-shadow(0 0 6px var(--star-color));
     transform: translate3d(104em, 0, 0);
     animation: fall var(--fall-duration) var(--fall-delay) linear infinite, tail-fade var(--tail-fade-duration) var(--fall-delay) ease-out infinite;
-}
 
-/* Specific star colors resembling real star colors */
-.star:nth-child(1) {
-    --star-color: #0a94c1;
-    color: var(--star-color);
-}
-
-.star:nth-child(2) {
-    --star-color: #1a75ba;
-    color: var(--star-color);
-}
-
-.star:nth-child(3) {
-    --star-color: #8e8aff;
-    color: var(--star-color);
-}
-
-.star:nth-child(4) {
-    --star-color: #3c67ff;
-    color: var(--star-color);
-}
-
-.star:nth-child(5) {
-    --star-color: #84ffd4;
-    color: var(--star-color);
-}
-
-/* Repeat colors for additional stars */
-.star:nth-child(5n+1) {
-    --star-color: #0a94c1;
-    color: var(--star-color);
-}
-
-.star:nth-child(5n+2) {
-    --star-color: #1a75ba;
-    color: var(--star-color);
-}
-
-.star:nth-child(5n+3) {
-    --star-color: #8e8aff;
-    color: var(--star-color);
-}
-
-.star:nth-child(5n+4) {
-    --star-color: #3c67ff;
-    color: var(--star-color);
-}
-
-.star:nth-child(5n+5) {
-    --star-color: #84ffd4;
-    color: var(--star-color);
-}
-
-/* Keyframes for animations */
-@keyframes fall {
-    to {
-        transform: translate3d(-45em, 0, 0);
+    @for $i from 1 through $star-count {
+        &:nth-child(#{$i}) {
+            --star-tail-length: #{random_range(500em, 750em) / 100};
+            --top-offset: #{random_range(0vh, 10000vh) / 100};
+            --fall-duration: #{random_range(6000, 12000) / 1000}s;
+            --fall-delay: #{random(10000) / 1000}s;
+            --star-color: var(--star-color-#{random(5)});
+        }
     }
-}
 
-@keyframes tail-fade {
-    to {
-        background: linear-gradient(10deg, transparent, transparent);
+    &::before,
+    &::after {
+        position: absolute;
+        content: '';
+        top: 0;
+        left: calc(var(--star-width) / -2);
+        width: var(--star-width);
+        height: 100%;
+        background: linear-gradient(45deg, transparent, var(--star-color), transparent);
+        border-radius: inherit;
+        animation: blink 2s linear infinite;
     }
-}
 
-.star::before,
-.star::after {
-    position: absolute;
-    content: '';
-    top: 0;
-    left: calc(var(--star-width) / -2);
-    width: var(--star-width);
-    height: 100%;
-    background: linear-gradient(45deg, transparent, currentColor, transparent);
-    border-radius: inherit;
-    animation: blink 2s linear infinite;
-}
+    &::before {
+        transform: rotate(45deg);
+    }
 
-.star::before {
-    transform: rotate(45deg);
-}
-
-.star::after {
-    transform: rotate(-45deg);
-}
-
-@media screen and (max-width: 750px) {
-    .star {
-        animation: fall var(--fall-duration) var(--fall-delay) linear infinite;
+    &::after {
+        transform: rotate(-45deg);
     }
 }
 

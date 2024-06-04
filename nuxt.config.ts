@@ -1,7 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-
   app: {
     head: {
       title: 'Portfolio by Sarus',
@@ -13,8 +12,25 @@ export default defineNuxtConfig({
     },
     pageTransition: { name: 'page', mode: 'out-in' }
   },
+  plugins: [
+    { src: '~/plugins/aos.js', ssr: false }
+  ],
   css: [
-    '~/assets/global.css'
-  ]
-  //modules: ["@nuxt/ui"]
+    '~/assets/global.scss',
+    'aos/dist/aos.css'
+  ],
+  modules: [
+    '@nuxt/ui',
+    'nuxt-aos',
+    '@nuxtjs/tailwindcss'
+  ],
+  aos: {
+    duration: 1000,
+    easing: 'ease-in-out',
+    once: true,
+  },
+  tailwindcss: {
+    cssPath: '~/assets/tailwind.css',
+    configPath: 'tailwind.config.js',
+  }
 })

@@ -1,9 +1,9 @@
 <template>
     <div class="container">
-        <div class="faq-header">FAQ?</div>
+        <div class="faq-header" data-aos="fade-down">Q&A</div>
 
         <div class="faq-content">
-            <div class="faq-question" v-for="(faq, index) in faqs" :key="index">
+            <div class="faq-question" v-for="(faq, index) in faqs" :key="index" data-aos="fade-up">
                 <input :id="'q' + index" type="checkbox" class="panel" v-model="faq.checked">
                 <label :for="'q' + index" class="panel-title">
                     <div class="plus">+</div>
@@ -15,6 +15,7 @@
     </div>
     <br>
 </template>
+
 
 <script lang="ts" setup>
 import { ref, watch } from 'vue';
@@ -89,7 +90,7 @@ body {
     color: #fcfcfc;
     border-bottom: 1px dotted #ccc;
     padding: 24px;
-    height: 30vh;
+    height: 50vh;
     display: flex;
     align-items: center;
     justify-content: center;

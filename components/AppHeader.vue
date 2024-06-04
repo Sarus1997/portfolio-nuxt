@@ -2,16 +2,43 @@
     <div class="container demo">
         <div class="content">
             <div id="large-header" class="large-header" ref="headerRef">
-                <canvas id="demo-canvas"></canvas>
-                <h1 class="main-title">Portfolio</h1>
-                <p><strong>By </strong>Sarus</p>
+                <div class="text-content">
+                    <h1 class="main-title" data-aos="fade-up">Portfolio</h1>
+                    <p data-aos="fade-up" data-aos-delay="200">
+                        <strong>By </strong>Sarus
+                    </p>
+                </div>
             </div>
         </div>
     </div>
 </template>
 
 <script lang="ts">
+import { defineComponent, onMounted, ref, onBeforeUnmount } from 'vue';
+import AOS from 'aos';
 
+export default defineComponent({
+    setup() {
+        const headerRef = ref<HTMLElement | null>(null);
+
+        onMounted(() => {
+            AOS.init();
+
+            const handleResize = () => {
+                AOS.refreshHard();
+            };
+
+            window.addEventListener('resize', handleResize);
+
+            // Clean up event listener on unmount
+            onBeforeUnmount(() => {
+                window.removeEventListener('resize', handleResize);
+            });
+        });
+
+        return { headerRef };
+    },
+});
 </script>
 
 <style scoped>
@@ -19,37 +46,46 @@
     position: relative;
     width: 100%;
     height: 100vh;
+    overflow: hidden;
+}
+
+.text-content {
+    position: absolute;
+    top: 50%;
+    right: -60%;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
 }
 
 
+.main-title,
+p {
+    color: #f9f1e9;
+    margin: 0;
+}
 
 .main-title {
-    position: absolute;
-    margin: 0;
-    padding: 0;
-    color: #F9F1E9;
-    text-align: center;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate3d(-50%, -50%, 0);
-    transform: translate3d(-50%, -50%, 0);
-    z-index: 2;
-    /* Ensure title appears above canvas */
-}
-
-.demo .main-title {
-    text-transform: uppercase;
     font-size: 4.2em;
     letter-spacing: 0.1em;
+    text-transform: uppercase;
 }
 
-.main-title .thin {
-    font-weight: 200;
-}
-
+/* Responsive Styles */
 @media only screen and (max-width: 768px) {
-    .demo .main-title {
-        font-size: 3em;
+    .main-title {
+        font-size: 2.5em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    .text-content {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 }
 </style>
