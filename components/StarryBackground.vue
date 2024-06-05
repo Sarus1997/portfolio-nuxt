@@ -14,7 +14,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 @function random_range($min, $max) {
-    @return $min +random($max - $min + 1);
+    @return $min + floor(random() * ($max - $min + 1));
 }
 
 .stars {
@@ -74,10 +74,10 @@ export default defineComponent({
 
     @for $i from 1 through $star-count {
         &:nth-child(#{$i}) {
-            --star-tail-length: #{random_range(500em, 750em) / 100};
-            --top-offset: #{random_range(0vh, 10000vh) / 100};
-            --fall-duration: #{random_range(6000, 12000) / 1000}s;
-            --fall-delay: #{random(10000) / 1000}s;
+            --star-tail-length: #{calc(random_range(500em, 750em) / 100)};
+            --top-offset: #{calc(random_range(0vh, 10000vh) / 100)};
+            --fall-duration: #{calc(random_range(6000, 12000) / 1000)}s;
+            --fall-delay: #{calc(random(10000) / 1000)}s;
             --star-color: var(--star-color-#{random(5)});
         }
     }

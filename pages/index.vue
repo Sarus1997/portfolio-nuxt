@@ -1,6 +1,6 @@
 <template>
     <AppHeader />
-    <div class="container">
+    <div>
         <PersonalInfo />
     </div>
 </template>

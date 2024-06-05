@@ -1,5 +1,5 @@
 <template>
-    <div class="container demo">
+    <div class="container">
         <div class="content">
             <div id="large-header" class="large-header" ref="headerRef">
                 <div class="text-content">
@@ -52,13 +52,12 @@ export default defineComponent({
 .text-content {
     position: absolute;
     top: 50%;
-    right: -60%;
+    right: -50%;
     z-index: 2;
     transform: translate(-50%, -50%);
     text-align: center;
     width: 100%;
 }
-
 
 .main-title,
 p {
@@ -88,4 +87,12 @@ p {
         transform: translate(-50%, -50%);
     }
 }
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
 </style>
