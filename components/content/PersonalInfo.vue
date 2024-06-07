@@ -1,36 +1,37 @@
 <template>
     <section id="profile" class="py-24">
         <div class="container mx-auto">
-            <h2 class="text-center text-4xl font-bold text-gray-800 mb-8" data-aos="fade-up">
+            <h2 class="text-4xl font-bold mb-8" data-aos="fade-up">
                 ข้อมูลส่วนตัว
             </h2>
+            <LineDivider color="success" />
             <div class="container mx-auto">
                 <div class="flex flex-col md:flex-row justify-center">
                     <div class="md:w-10/12" data-aos="fade-up" data-aos-delay="100">
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                             <div class="profile-item">
-                                <ui-icon name="mdi-account-badge" class="text-2xl text-green-500 mr-4"></ui-icon>
-                                <span class="text-lg text-gray-800">ชื่อ : นายสหรัฐ สุวรรณภาพร</span>
+                                <i class="mdi mdi-account-badge text-2xl text-green-500 mr-4"></i>
+                                <span class="text-lg">ชื่อ : นายสหรัฐ สุวรรณภาพร</span>
                             </div>
                             <div class="profile-item">
-                                <ui-icon name="mdi-link" class="text-2xl text-green-500 mr-4"></ui-icon>
-                                <span class="text-lg text-gray-800">ชื่อเล่น : รุส</span>
+                                <i class="mdi mdi-link text-2xl text-green-500 mr-4"></i>
+                                <span class="text-lg">ชื่อเล่น : รุส</span>
                             </div>
                             <div class="profile-item">
-                                <ui-icon name="mdi-calendar" class="text-2xl text-green-500 mr-4"></ui-icon>
-                                <span class="text-lg text-gray-800">วันเกิด : 12/06/1997</span>
+                                <i class="mdi mdi-calendar text-2xl text-green-500 mr-4"></i>
+                                <span class="text-lg">วันเกิด : 12/06/1997</span>
                             </div>
                             <div class="profile-item">
-                                <ui-icon name="mdi-pencil" class="text-2xl text-green-500 mr-4"></ui-icon>
-                                <span class="text-lg text-gray-800">เชื้อชาติ : ไทย</span>
+                                <i class="mdi mdi-pencil text-2xl text-green-500 mr-4"></i>
+                                <span class="text-lg">เชื้อชาติ : ไทย</span>
                             </div>
                             <div class="profile-item">
-                                <ui-icon name="mdi-flag" class="text-2xl text-green-500 mr-4"></ui-icon>
-                                <span class="text-lg text-gray-800">สัญชาติ : ไทย</span>
+                                <i class="mdi mdi-flag text-2xl text-green-500 mr-4"></i>
+                                <span class="text-lg">สัญชาติ : ไทย</span>
                             </div>
                             <div class="profile-item">
-                                <ui-icon name="mdi-emoticon" class="text-2xl text-green-500 mr-4"></ui-icon>
-                                <span class="text-lg text-gray-800">ศาสนา : อิสลาม</span>
+                                <i class="mdi mdi-emoticon text-2xl text-green-500 mr-4"></i>
+                                <span class="text-lg">ศาสนา : อิสลาม</span>
                             </div>
                         </div>
                     </div>
@@ -59,14 +60,18 @@ export default defineComponent({
 .profile-item {
     display: flex;
     align-items: center;
-    padding: 1rem;
-    border-radius: 0.375rem;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
 span {
     font-size: 14px;
 }
 
+h2 {
+    padding-left: 15px;
+}
 
+.line-success {
+    width: 150px;
+    margin-top: 20px;
+}
 </style>

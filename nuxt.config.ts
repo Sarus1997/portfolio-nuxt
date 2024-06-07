@@ -17,11 +17,14 @@ export default defineNuxtConfig({
   ],
   css: [
     '~/assets/global.scss',
-    'aos/dist/aos.css'
+    'aos/dist/aos.css',
+    '@mdi/font/css/materialdesignicons.min.css' 
   ],
   modules: [
     '@nuxt/ui',
+    'nuxt-icon',
     'nuxt-aos',
+    'nuxt-mdi',
     '@nuxtjs/tailwindcss'
   ],
   aos: {
