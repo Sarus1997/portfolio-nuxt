@@ -163,6 +163,11 @@ ul {
     transition: background-color 0.3s ease;
 }
 
+.appbar::sticky {
+    background-color: rgba(6, 19, 53, 0.7);
+    backdrop-filter: blur(10px);
+}
+
 .appbar-sticky {
     background-color: rgba(6, 19, 53, 0.7);
     backdrop-filter: blur(10px); 

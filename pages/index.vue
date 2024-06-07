@@ -2,15 +2,18 @@
     <AppHeader />
     <div>
         <PersonalInfo />
+        <EducationalInfo />
     </div>
 </template>
 
 <script lang="ts">
 import PersonalInfo from '~/components/content/PersonalInfo.vue';
+import EducationalInfo from '~/components/content/EducationalInfo.vue';
 
 export default {
     components: {
         PersonalInfo,
+        EducationalInfo,
     },
 };
 </script>

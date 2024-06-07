@@ -24,6 +24,8 @@ export default defineComponent({
     width: 100%;
     height: 120%;
     transform: rotate(-50deg);
+    /* overflow: hidden;
+    z-index: -1; */
 }
 
 .star {
@@ -35,6 +37,8 @@ export default defineComponent({
     left: 50%;
     transform: translateX(-50%);
     animation: fall var(--fall-duration) var(--fall-delay) linear forwards;
+    opacity: 0.5;
+    filter: blur(2px);
 }
 
 @keyframes fall {

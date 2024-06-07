@@ -24,6 +24,7 @@ const classes = computed(() => {
     background-size: 300% 100%;
     animation: gradientAnimation 3s infinite;
     margin-bottom: 20px;
+    margin-left: 45px;
 }
 
 @keyframes gradientAnimation {
@@ -39,11 +40,19 @@ const classes = computed(() => {
 }
 
 /* Media query for mobile devices */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .line-success {
         width: 80px; 
         margin-bottom: 30px; 
-        margin-left: 20px;
+        margin-left: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .line-success {
+        width: 80px; 
+        margin-bottom: 30px; 
+        margin-left: 30px;
     }
 }
 </style>

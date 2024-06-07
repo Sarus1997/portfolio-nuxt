@@ -68,10 +68,31 @@ span {
 
 h2 {
     padding-left: 15px;
+    margin-left: 30px;
 }
 
 .line-success {
     width: 150px;
     margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .profile-item {
+        margin-left: 30px;
+    }
+
+    h2 {
+        padding-left: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-item {
+        margin-left: 30px;
+    }
+
+    h2 {
+        padding-left: 30px;
+    }
 }
 </style>
