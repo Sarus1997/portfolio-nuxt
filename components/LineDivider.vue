@@ -1,8 +1,8 @@
 <template>
-    <hr :class="classes" />
+    <hr :class="classes" data-aos="fade-right" data-aos-duration="1000" />
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { computed } from 'vue';
 
 interface LineDividerProps {
