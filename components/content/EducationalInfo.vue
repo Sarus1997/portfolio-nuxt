@@ -1,24 +1,33 @@
 <template>
-    <section id="profile" class="py-24">
-        <div class="container mx-auto">
-            <h2 class="text-4xl font-bold mb-8" data-aos="fade-up">
+    <section id="profile" class="py-24 bg-gradient-to-br from-gray-900 to-gray-800 text-white flex items-center justify-center">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center" data-aos="fade-up">
                 ข้อมูลการศึกษา
             </h2>
-            <LineDivider color="success" />
-            <div class="container mx-auto" data-aos="fade-up">
-                <br>
-                <div class="content-wrapper">
-                    <h3><strong>การศึกษา :</strong> ระดับมัธยมตอนปลาย</h3>
-                    <UTabs :items="items" :default-index="0" class="blur-background content-wrapper" />
-                    <br>
-                    <h3><strong>การศึกษา :</strong> ระดับปริญญาบัณฑิต</h3>
-                    <UTabs :items="items2" :default-index="0" class="blur-background content-wrapper" />
+            <LineDivider class="line-success mx-auto" color="success" />
+            <div class="max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                <div class="mb-16">
+                    <h3 class="text-1xl font-semibold mb-6 flex items-center">
+                        <i class="fas fa-graduation-cap mr-3 text-emerald-400"></i>
+                        ระดับมัธยมตอนปลาย
+                    </h3>
+                    <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+                        <UTabs :items="items" :default-index="0" class="education-tabs" />
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-1xl font-semibold mb-6 flex items-center">
+                        <i class="fas fa-university mr-3 text-emerald-400"></i>
+                        ระดับปริญญาบัณฑิต
+                    </h3>
+                    <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+                        <UTabs :items="items2" :default-index="0" class="education-tabs" />
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 </template>
-
 
 <script lang="ts">
 import { defineComponent, onMounted, ref } from 'vue';
@@ -29,19 +38,22 @@ import LineDivider from '@/components/LineDivider.vue';
 export default defineComponent({
     setup() {
         const items = ref([
-            { label: 'โรงเรียน', icon: 'mdi-school', content: 'โรงเรียนกำแพงวิทยา' },
-            { label: 'สาขา', icon: 'mdi-language-chinese', content: 'ศิลป์ภาษาจีน' },
-            { label: 'เกรด', icon: 'mdi-numeric-2-box', content: 'GPAX : 2.11' },
+            { label: 'โรงเรียน', icon: 'fas fa-school', content: 'โรงเรียนกำแพงวิทยา' },
+            { label: 'สาขา', icon: 'fas fa-language', content: 'ศิลป์ภาษาจีน' },
+            { label: 'เกรด', icon: 'fas fa-chart-bar', content: 'GPAX : 2.11' },
         ]);
 
         const items2 = ref([
-            { label: 'มหาวิทยาลัย', icon: 'mdi-school', content: 'มหาวิทยาลัยวลัยลักษณ์' },
-            { label: 'สาขา', icon: 'mdi-desktop-mac', content: 'เทคโนโลยีสารสนเทศและนวัตกรรมดิจิทัล' },
-            { label: 'เกรด', icon: 'mdi-numeric-3-box', content: 'GPAX : 3.17' },
+            { label: 'มหาวิทยาลัย', icon: 'fas fa-university', content: 'มหาวิทยาลัยวลัยลักษณ์' },
+            { label: 'สาขา', icon: 'fas fa-laptop-code', content: 'เทคโนโลยีสารสนเทศและนวัตกรรมดิจิทัล' },
+            { label: 'เกรด', icon: 'fas fa-chart-line', content: 'GPAX : 3.17' },
         ]);
 
         onMounted(() => {
-            AOS.init();
+            AOS.init({
+                duration: 1000,
+                once: true,
+            });
         });
 
         return {
@@ -53,98 +65,53 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.profile-item {
+#profile {
+    height: 100vh;
     display: flex;
     align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
-h2 {
-    padding-left: 15px;
-    margin-left: 30px;
-}
+.education-tabs {
+    ::v-deep {
+        .u-tabs__header {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
 
-h3 {
-    margin-bottom: 5px;
-}
+        .u-tabs__item {
+            color: #ffffff;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+            width: calc(100% / 3); /* Adjust the width to fit all items in one row */
 
-.line-success {
-    width: 150px;
-    margin-top: 20px;
-}
+            &:hover,
+            &--active {
+                opacity: 1;
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+        }
 
-.container {
-    padding: 0 10px;
-}
-
-.UTabs {
-    margin: 20px 0;
-}
-
-.blur-background {
-    backdrop-filter: blur(10px); 
-}
-
-.content-wrapper {
-    width: 90%;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-
-@media (max-width: 768px) {
-    .profile-item {
-        margin-left: 30px;
+        .u-tabs__content {
+            padding: 1.5rem;
+            font-size: 1.1rem;
+        }
     }
 
+    .line-success {
+        justify-content: center;
+        width: 200px;
+    }
+}
+
+@media (max-width: 640px) {
     h2 {
-        padding-left: 30px;
-    }
-
-    .container {
-        padding: 0 10px;
-    }
-
-    .UTabs {
-        margin: 20px 0;
-    }
-
-    /* Change icons to 'mdi' for mobile */
-    .mdi {
-        display: inline-block;
-        font-family: "Material Design Icons";
         font-size: 24px;
-        font-style: normal;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-    }
-}
-
-@media (max-width: 480px) {
-    .profile-item {
-        margin-left: 30px;
     }
 
-    h2 {
-        padding-left: 30px;
-    }
-
-    .container {
-        padding: 0 10px;
-    }
-
-    .UTabs {
-        margin: 20px 0;
-    }
-
-    /* Change icons to 'mdi' for mobile */
-    .mdi {
-        display: inline-block;
-        font-family: "Material Design Icons";
-        font-size: 24px;
-        font-style: normal;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
+    h3 {
+        font-size: 16px;
     }
 }
 </style>

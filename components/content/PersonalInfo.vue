@@ -1,37 +1,39 @@
 <template>
-    <section id="profile" class="py-24">
-        <div class="container mx-auto">
-            <h2 class="text-4xl font-bold mb-8" data-aos="fade-up">
+    <section id="profile" class="py-8 sm:py-16 md:py-24 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 text-center" data-aos="fade-up">
                 ข้อมูลส่วนตัว
             </h2>
             <LineDivider color="success" />
-            <div class="container mx-auto">
-                <div class="flex flex-col md:flex-row justify-center">
-                    <div class="md:w-10/12" data-aos="fade-up" data-aos-delay="100">
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div class="profile-item">
-                                <i class="mdi mdi-account-badge text-2xl text-green-500 mr-4"></i>
-                                <span class="text-lg">ชื่อ : นายสหรัฐ สุวรรณภาพร</span>
-                            </div>
-                            <div class="profile-item">
-                                <i class="mdi mdi-link text-2xl text-green-500 mr-4"></i>
-                                <span class="text-lg">ชื่อเล่น : รุส</span>
-                            </div>
-                            <div class="profile-item">
-                                <i class="mdi mdi-calendar text-2xl text-green-500 mr-4"></i>
-                                <span class="text-lg">วันเกิด : 12/06/1997</span>
-                            </div>
-                            <div class="profile-item">
-                                <i class="mdi mdi-pencil text-2xl text-green-500 mr-4"></i>
-                                <span class="text-lg">เชื้อชาติ : ไทย</span>
-                            </div>
-                            <div class="profile-item">
-                                <i class="mdi mdi-flag text-2xl text-green-500 mr-4"></i>
-                                <span class="text-lg">สัญชาติ : ไทย</span>
-                            </div>
-                            <div class="profile-item">
-                                <i class="mdi mdi-emoticon text-2xl text-green-500 mr-4"></i>
-                                <span class="text-lg">ศาสนา : อิสลาม</span>
+            <div class="max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-gray-800 rounded-xl shadow-xl overflow-hidden p-4 sm:p-6 lg:p-8">
+                    <div class="border-2 border-emerald-200 rounded-lg p-4 sm:p-6 lg:p-8">
+                        <div class="bg-gray-900 rounded-lg p-6 sm:p-8 lg:p-10">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 lg:gap-4">
+                                <div class="profile-item">
+                                    <i class="mdi mdi-account-badge text-2xl sm:text-3xl text-teal-300 mr-4"></i>
+                                    <span class="text-base sm:text-lg"><strong>ชื่อ : </strong>นายสหรัฐ สุวรรณภาพร</span>
+                                </div>
+                                <div class="profile-item">
+                                    <i class="mdi mdi-link text-2xl sm:text-3xl text-teal-500 mr-4"></i>
+                                    <span class="text-base sm:text-lg"><strong>ชื่อเล่น : </strong>รุส</span>
+                                </div>
+                                <div class="profile-item">
+                                    <i class="mdi mdi-cake text-2xl sm:text-3xl text-teal-500 mr-4"></i>
+                                    <span class="text-base sm:text-lg"><strong>วันเกิด : </strong>12/06/1997</span>
+                                </div>
+                                <div class="profile-item">
+                                    <i class="mdi mdi-pencil text-2xl sm:text-3xl text-teal-500 mr-4"></i>
+                                    <span class="text-base sm:text-lg"><strong>เชื้อชาติ : </strong>ไทย</span>
+                                </div>
+                                <div class="profile-item">
+                                    <i class="mdi mdi-flag text-2xl sm:text-3xl text-teal-500 mr-4"></i>
+                                    <span class="text-base sm:text-lg"><strong>สัญชาติ : </strong>ไทย</span>
+                                </div>
+                                <div class="profile-item">
+                                    <i class="mdi mdi-star-crescent text-2xl sm:text-3xl text-teal-500 mr-4"></i>
+                                    <span class="text-base sm:text-lg"><strong>ศาสนา : </strong>อิสลาม</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -57,42 +59,21 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+#profile {
+    height: 100vh; /* Adjusted height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .profile-item {
     display: flex;
     align-items: center;
+    padding: 1rem 0;
 }
 
 span {
     font-size: 14px;
 }
 
-h2 {
-    padding-left: 15px;
-    margin-left: 30px;
-}
-
-.line-success {
-    width: 150px;
-    margin-top: 20px;
-}
-
-@media (max-width: 768px) {
-    .profile-item {
-        margin-left: 30px;
-    }
-
-    h2 {
-        padding-left: 30px;
-    }
-}
-
-@media (max-width: 480px) {
-    .profile-item {
-        margin-left: 30px;
-    }
-
-    h2 {
-        padding-left: 30px;
-    }
-}
 </style>

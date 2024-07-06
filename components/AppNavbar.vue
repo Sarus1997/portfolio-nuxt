@@ -8,18 +8,10 @@
                 <div class="appbar-col">
                     <nav>
                         <ul class="menu">
-                            <li>
-                                <a href="/about">About Us</a>
-                            </li>
-                            <li>
-                                <a href="/contact">Contact</a>
-                            </li>
-                            <li>
-                                <a href="/workings">Workings</a>
-                            </li>
-                            <li>
-                                <a href="/tools">Tools Used</a>
-                            </li>
+                            <li><a href="/about">About Us</a></li>
+                            <li><a href="/contact">Contact</a></li>
+                            <li><a href="/workings">Workings</a></li>
+                            <li><a href="/tools">Tools Used</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -35,18 +27,10 @@
                 <h1>SR</h1>
             </div>
             <ul>
-                <li>
-                    <a href="/about">About Us</a>
-                </li>
-                <li>
-                    <a href="/contact">Contact</a>
-                </li>
-                <li>
-                    <a href="/workings">Workings</a>
-                </li>
-                <li>
-                    <a href="/tools">Tools Used</a>
-                </li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/workings">Workings</a></li>
+                <li><a href="/tools">Tools Used</a></li>
             </ul>
         </nav>
     </aside>
@@ -126,7 +110,6 @@ export default defineComponent({
         };
     },
 });
-
 </script>
 
 <style scoped>
@@ -163,17 +146,11 @@ ul {
     transition: background-color 0.3s ease;
 }
 
-.appbar::sticky {
-    background-color: rgba(6, 19, 53, 0.7);
-    backdrop-filter: blur(10px);
-}
-
 .appbar-sticky {
-    background-color: rgba(6, 19, 53, 0.7);
-    backdrop-filter: blur(10px); 
+    background: linear-gradient(45deg, #1a237e, #3949ab);
+    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }
-
 
 .appbar-col {
     flex: 1;
@@ -247,8 +224,8 @@ ul {
     right: -250px;
     width: 250px;
     height: 100%;
-    background-color: rgba(6, 19, 53, 0.7);
-    backdrop-filter: blur(10px); 
+    background: linear-gradient(45deg, #1a237e, #3949ab);
+    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     transition: right 0.3s ease;
     z-index: 1001;
@@ -279,7 +256,7 @@ ul {
 }
 
 .sidebar nav ul li a:hover {
-    color: #a51fd2;
+    color: #1fd296;
 }
 
 /* Close button styles */

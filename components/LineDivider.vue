@@ -18,13 +18,14 @@ const classes = computed(() => {
 
 <style scoped>
 .line-success {
-    width: 100px;
+    width: 250px;
     height: 2px;
     background: linear-gradient(90deg, #ff00dd, #00ffdd, #ddff00);
     background-size: 300% 100%;
     animation: gradientAnimation 3s infinite;
     margin-bottom: 20px;
-    margin-left: 45px;
+    margin-left: auto; 
+    margin-right: auto; 
 }
 
 @keyframes gradientAnimation {
@@ -36,23 +37,6 @@ const classes = computed(() => {
     }
     100% {
         background-position: 0% 50%;
-    }
-}
-
-/* Media query for mobile devices */
-@media (max-width: 768px) {
-    .line-success {
-        width: 80px; 
-        margin-bottom: 30px; 
-        margin-left: 30px;
-    }
-}
-
-@media (max-width: 480px) {
-    .line-success {
-        width: 80px; 
-        margin-bottom: 30px; 
-        margin-left: 30px;
     }
 }
 </style>

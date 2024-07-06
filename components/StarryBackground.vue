@@ -53,15 +53,14 @@ export default defineComponent({
 }
 
 .star {
-    $star-count: 50;
-    --star-color-1: #fff;
-    --star-color-2: #ff9a9e;
-    --star-color-3: #d7fac4;
-    --star-color-4: #fbc2eb;
-    --star-color-5: #a18cd1;
+    $star-count: 100;
+    --star-color-1: #ffff95;
+    --star-color-2: #ffa5d2;
+    --star-color-3: #6effff;
+    --star-color-4: #5f77ff;
+    --star-color-5: #8cffc4;
     --star-tail-length: 6em;
     --star-tail-height: 1px;
-    --star-width: calc(var(--star-tail-length) / 6);
     --fall-duration: 9s;
     --tail-fade-duration: var(--fall-duration);
 
@@ -74,14 +73,22 @@ export default defineComponent({
     border-radius: 50%;
     filter: drop-shadow(0 0 6px var(--star-color));
     transform: translate3d(104em, 0, 0);
-    animation: fall var(--fall-duration) var(--fall-delay) linear infinite, tail-fade var(--tail-fade-duration) var(--fall-delay) ease-out infinite;
+    animation: fall var(--fall-duration) var(--fall-delay) linear infinite,
+        tail-fade var(--tail-fade-duration) var(--fall-delay) ease-out infinite,
+        twinkle var(--twinkle-duration) var(--twinkle-delay) ease-in-out infinite;
+
+    box-shadow: 0 0 10px var(--star-color),
+        0 0 20px var(--star-color),
+        0 0 30px var(--star-color);
 
     @for $i from 1 through $star-count {
         &:nth-child(#{$i}) {
             --star-tail-length: #{calc(random_range(500em, 750em) / 100)};
             --top-offset: #{calc(random_range(0vh, 10000vh) / 100)};
-            --fall-duration: #{calc(random_range(6000, 12000) / 1000)}s;
-            --fall-delay: #{calc(random(10000) / 1000)}s;
+            --fall-duration: #{calc(random_range(4000, 20000) / 1000)}s;
+            --fall-delay: #{calc(random(20000) / 1000)}s;
+            --twinkle-duration: #{calc(random_range(1000, 5000) / 1000)}s;
+            --twinkle-delay: #{calc(random(5000) / 1000)}s;
             --star-color: var(--star-color-#{random(5)});
         }
     }
@@ -106,6 +113,8 @@ export default defineComponent({
     &::after {
         transform: rotate(-45deg);
     }
+
+    --star-width: calc(var(--star-tail-length) / random_range(4, 8));
 }
 
 @keyframes fall {
