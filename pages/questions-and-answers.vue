@@ -22,45 +22,56 @@ import { ref, watch } from 'vue';
 
 const faqs = ref([
     {
-        question: 'เรียนจบจากมหาวิทยาลัยอะไร',
-        answer: '<p>มหาวิทยาลัยวลัยลักษณ์</p><img src="img/logo/Walailak_University_Logo.png" style="width: 100px; height: auto;">',
-        checked: false
+      question: "What university did you graduate from?",
+      answer:
+        '<p>มหาวิทยาลัยวลัยลักษณ์</p><img src="img/logo/Walailak_University_Logo.png" style="width: 100px; height: auto;">',
+      checked: false,
     },
     {
-        question: 'ทำไมถึงเรียนสาย IT',
-        answer: 'ได้รู้จักและทดลองใช้เทคโนโลยีใหม่ๆ รวมไปถึงได้ฝึกเขียน Programming Language และ Framework ใหม่ๆ ',
-        checked: false
+      question: "Why study Information and technology?",
+      answer:
+        "Get to know and experiment with new technologies, as well as practice writing new programming languages ​​and frameworks.",
+      checked: false,
     },
     {
-        question: 'Programming Language ที่ชอบ',
-        answer: 'HTML5, CSS3, JavaScript, Python, Golang, C++, Java',
-        checked: false
+      question: "Favorite programming languages.",
+      answer:
+        "- HTML5 <br> - CSS3 <br> - JavaScript <br> - Python <br> - Golang <br> - C++ <br> - Java <br> - Dart",
+      checked: false,
     },
     {
-        question: 'JavaScript libraries และ avaScript Frameworks ที่ชอบ',
-        answer: 'React.js, Vue.js, Node.js, Next.js, Nuxt.js',
-        checked: false
+      question:
+        "Favorite language used for database development or backend development.",
+      answer: "- SQL <br> - NoSQL ",
+      checked: false,
     },
     {
-        question: 'Tool Editor ที่ใช้ในการพัฒนาเว็บไซต์',
-        answer: 'Visual Studio Code (VS Code)',
-        checked: false
+      question: "Favorite Frameworks.",
+      answer:
+        "- React.js <br> - Vue.js <br> - Node.js <br> - Next.js <br> - Nuxt.js <br> - Angular.js <br> - Laravel <br> - Flutter",
+      checked: false,
     },
     {
-        question: 'Notebook brand ที่ชอบ',
-        answer: 'MSI',
-        checked: false
+      question: "Integrated Development Environment Used For Development.",
+      answer:
+        "- Visual Studio Code (VS Code) <br> - PyCharm <br> - Android Studio",
+      checked: false,
     },
     {
-        question: 'อาชีพที่อยากทำ',
-        answer: 'Programmer และ Data Analyst',
-        checked: false
+      question: "Favorite notebook brand.",
+      answer: " - MSI",
+      checked: false,
     },
     {
-        question: 'สัตว์เลี้ยงที่ชอบ',
-        answer: 'แมว',
-        checked: false
-    }
+      question: "A career that I like and want to do.",
+      answer: "- Programmer <br> - Data Analyst",
+      checked: false,
+    },
+    {
+      question: "Favorite pets.",
+      answer: "- Cat",
+      checked: false,
+    },
 ]);
 
 // Watch for changes to faqs to verify reactivity
